@@ -5,7 +5,7 @@ SugarLisp extension adds pattern matching based on Dave Hermans pattern-match li
 
 This module adds a syntax layer on top of Dave Herman's [pattern-match library](https://www.npmjs.com/package/pattern-match)
 
-## Use
+#### Use
 
 To use it insert:
 
@@ -13,7 +13,7 @@ To use it insert:
 
 Near the top of your .sugar file.
 
-## Limitations
+#### Limitations
 
 The match dialect currently only works when using the "SugarScript" javascript-like dialect.
 
