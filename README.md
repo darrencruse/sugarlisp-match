@@ -3,7 +3,7 @@ SugarLisp extension adds pattern matching based on Dave Hermans pattern-match li
 
 #### WORK IN PROGRESS - NOT TO BE USED IN PRODUCTION
 
-This module adds a syntax layer on top of Dave Herman's [https://www.npmjs.com/package/pattern-match](pattern-match library)
+This module adds a syntax layer on top of Dave Herman's [pattern-match library](https://www.npmjs.com/package/pattern-match)
 
 ## Use
 
