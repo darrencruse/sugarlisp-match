@@ -1,0 +1,18 @@
+#use "match"
+
+(function fib 
+  (do 
+    (case 
+      (array 0) 0) 
+    (case 
+      (array 1) 1) 
+    (case 
+      (array x) 
+      (+ 
+        (fib 
+          (- x 1)) 
+        (fib 
+          (- x 2)))))) 
+
+(console.log 
+  (fib 8)))

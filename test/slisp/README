@@ -1,0 +1,9 @@
+Note the match dialect currently only works with "sugarscript" (.sugar) not 
+sugarlisp core (.slisp) files.
+
+As a result the tests/examples in this directory are failing.
+
+Whereas the corresponding tests/examples in the "sugar" directory do work.
+
+(this should get corrected at some point)
+

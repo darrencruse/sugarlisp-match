@@ -1,0 +1,34 @@
+//#transpile { to: 'core' }
+
+#use "match"
+var reader = require('sugarlisp-core/reader')
+
+function testMatch(forms) {
+
+  match(forms) {
+
+    case ["function" fname::slsymbol fargs::sllist ...fbody] {
+      console.log("Was: function ${fname}(${fargs}) (${fbody})")
+    }
+
+    case ["function" fargs::sllist ...fbody] {
+      console.log("Was: Anonymous function (${fargs}) (${fbody})")
+    }
+
+    default {
+      console.log("No match!")
+    }
+
+  }
+
+}
+
+var src = '(function add(x y) (+ x y))'
+var forms = reader.read_from_source(src, 'testReader.slisp')
+console.log("\n ${sl.pprintSEXP(forms[0].toJSON(),{bareSymbols: true})}\n")
+testMatch(forms[0])
+
+src = '(function (x y) (+ x y))'
+forms = reader.read_from_source(src, 'testReader.slisp')
+console.log("\n ${sl.pprintSEXP(forms[0].toJSON(),{bareSymbols: true})}\n")
+testMatch(forms[0])

@@ -1,0 +1,23 @@
+#use "match"
+
+(var reader (require 'sugarlisp-core/reader'))
+(var sl (require 'sugarlisp-core/types'))
+
+(function testMatchSimple (forms) 
+  (match (forms) {
+    (case ["function" (:: fname slsymbol) (:: fargs sllist) (:: ...fbody slrest)]
+      (console.log "Was: function ${fname}(${fargs}) (${fbody})"))
+
+    (case ["function" (:: fargs sllist) (:: ...fbody slrest)] {
+      (console.log "Was: Anonymous function (${fargs}) (${fbody})")
+    })
+
+    (default (console.log "No match:" (any.toJSON)))
+  }))
+
+// test the above against this (in-line) test code:
+(var src '(function add(x y) (console.log "hello"))')
+(var forms (reader.read_from_source src 'testReader.ls'))
+(console.log (+ '\n' (sl.pprintSEXP (forms.toJSON) {bareSymbols: true}) '\n'))
+
+(testMatchSimple forms)

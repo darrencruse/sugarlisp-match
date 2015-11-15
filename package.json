@@ -1,0 +1,35 @@
+{
+  "name": "sugarlisp-match",
+  "description": "sugarlisp match - extends core with pattern matching based on Dave Hermans pattern-match library.",
+  "keywords": [
+    "javascript",
+    "language",
+    "sugarlisp",
+    "compiler",
+    "lisp",
+    "match"
+  ],
+  "author": "Darren Cruse",
+  "version": "0.5.0",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/darrencruse/sugarlisp-match/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "pattern-match": "^0.3.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "homepage": "https://github.com/darrencruse/sugarlisp-match",
+  "bugs": "https://github.com/darrencruse/sugarlisp-match/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/darrencruse/sugarlisp-match.git"
+  }
+}

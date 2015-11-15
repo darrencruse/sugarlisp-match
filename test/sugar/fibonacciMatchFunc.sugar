@@ -1,0 +1,11 @@
+#use "match"
+
+function fib {
+
+    case [0]  0
+    case [1]  1
+    case [x]  (fib(x-1) + fib(x-2))
+
+}
+
+console.log(fib(8));
