@@ -68,7 +68,7 @@ match.slnull = function(form) {
   return sl.typeOf(form) === 'null';
 };
 
-// lsdefault is available as an alternative to match.any
+// sldefault is available as an alternative to match.any
 // it really just makes the lispy form look closer to the
 // match statement's "default" keyword
 match.sldefault = match.any;

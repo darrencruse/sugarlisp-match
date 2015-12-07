@@ -156,7 +156,7 @@ exports["::"] = function(forms) {
       }
 
       js = sl.transpiled();
-      js.push([this.margin(), "match.var(\"",varname, "\", match.", typename, ")"]);
+      js.push([this.margin(), "match.var(\"",varname, "\", match.", sl.stripQuotes(typename), ")"]);
     }
     else if(sl.typeOf(forms[1]) === 'string') {
       var str = sl.valueOfStr(forms[1]);
