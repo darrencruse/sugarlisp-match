@@ -1,4 +1,4 @@
-var sl = require('sugarlisp-core/types'),
+var sl = require('sugarlisp-core/sl-types'),
     reader = require('sugarlisp-core/reader'),
     utils = require('sugarlisp-core/utils'),
     corekeywords = require('sugarlisp-core/keywords'),

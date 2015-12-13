@@ -1,4 +1,4 @@
-var sl = require('sugarlisp-core/types'),
+var sl = require('sugarlisp-core/sl-types'),
     utils = require('sugarlisp-core/utils');
 
 exports["match"] = function(forms, macroexpander) {

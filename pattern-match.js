@@ -40,7 +40,7 @@
 */
 
 var match = require('pattern-match');
-var sl = require('sugarlisp-core/types');
+var sl = require('sugarlisp-core/sl-types');
 
 match.sllist = Array.isArray;
 
