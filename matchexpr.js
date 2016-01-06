@@ -5,9 +5,6 @@
 // to the match dialect rather than global
 
 module.exports = {
-  type: "mixin",
-// UNCOMMENT THE BELOW AND PUT IT BACK??  NOT SURE YET!!!
-//  extends: ["match"],
-  syntax: require('./matchexpr-syntax'),
-  keywords: require('./matchexpr-keywords')
+  readtab: require('./matchexpr-readtab'),
+  gentab: require('./matchexpr-gentab')
 };

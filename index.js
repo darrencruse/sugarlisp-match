@@ -1,6 +1,8 @@
 
 module.exports = {
+  name: "match",
   onuse: "sugarlisp-match/usematch.js",
-  syntax: require('./syntax'),
-  keywords: require('./keywords')
+  lextab: require('./lextab'),
+  readtab: require('./readtab'),
+  gentab: require('./gentab')
 };
