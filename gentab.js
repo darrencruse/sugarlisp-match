@@ -1,7 +1,7 @@
 var sl = require('sugarlisp-core/sl-types'),
     utils = require('sugarlisp-core/utils');
 
-exports["match"] = function(forms, macroexpander) {
+exports["match"] = function(forms) {
     var js;
 
     if (forms.length !== 3) {
@@ -17,7 +17,7 @@ exports["match"] = function(forms, macroexpander) {
       matchCases.shift();
     }
 
-    js = sl.transpiled();
+    js = sl.generated();
     js.push(["return match(", matchAgainst.toString(), ", function(when) {\n"]);
 
     this.indent += this.indentSize;
@@ -62,7 +62,7 @@ exports["function"] = function(forms) {
     var matchExpr = sl.list("match", "args", forms[astPos]);
 
     // note: "function" or "function*" below depending on how we were invoked
-    js = sl.transpiled()
+    js = sl.generated()
     js.push(sl.valueOf(forms[0]) + (fName ? " " + sl.valueOf(fName) : "") + "() {\n")
     this.indent += this.indentSize;
     js.push([" ".repeat(this.indent), "var args = Array.prototype.slice.call(arguments);\n"]);

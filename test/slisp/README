@@ -1,5 +1,5 @@
 Note the match dialect currently only works with "sugarscript" (.sugar) not 
-sugarlisp core (.slisp) files.
+sugarlisp plus (.slisp) files.
 
 As a result the tests/examples in this directory are failing.
 

@@ -1,8 +1,8 @@
 var sl = require('sugarlisp-core/sl-types'),
     reader = require('sugarlisp-core/reader'),
     utils = require('sugarlisp-core/utils'),
-    corekeywords = require('sugarlisp-core/keywords'),
-    debug = require('debug')('sugarlisp:match:matchexpr-keywords:info'),
+    coregentab = require('sugarlisp-core/gentab'),
+    debug = require('debug')('sugarlisp:match:matchexpr-keywords:debug'),
     trace = require('debug')('sugarlisp:match:matchexpr-keywords:trace');
 
 exports["case"] = function(forms) {
@@ -11,10 +11,10 @@ exports["case"] = function(forms) {
       forms.error("match \"case\" expects a match pattern followed by a code block");
     }
 
-    var source = sl.sourceOf(forms);
+    var source = sl.lexerOf(forms);
     var pattern = forms[1];
     var templateBody = forms[2];
-    var js = sl.transpiled();
+    var js = sl.generated();
     var argNames = [];
 
     js.push([" ".repeat(this.indent),"when("]);
@@ -77,7 +77,7 @@ exports["case"] = function(forms) {
       // let the normal function code template translate this:
 // SHOULDNT INDENT GO UP AND DOWN BY ONE AND OTHERWISE BE SCALED AUTOMATICALLY?
       this.indent += this.indentSize;
-      var templateFn = corekeywords["function"].call(this, matchVarsToArgsFnForm);
+      var templateFn = coregentab["function"].call(this, matchVarsToArgsFnForm);
       trace("templateFn is:", templateFn.toString());
       // next we invoke the function using run-time arguments
       // and making sure to pass through our "this" (otherwise
@@ -155,12 +155,12 @@ exports["::"] = function(forms) {
         typename = 'rest';
       }
 
-      js = sl.transpiled();
+      js = sl.generated();
       js.push([this.margin(), "match.var(\"",varname, "\", match.", sl.stripQuotes(typename), ")"]);
     }
     else if(sl.typeOf(forms[1]) === 'string') {
       var str = sl.valueOfStr(forms[1]);
-      js = sl.transpiled();
+      js = sl.generated();
       js.push(['function(sym) { return sym.value === "', str, '"; }']);
     }
 
